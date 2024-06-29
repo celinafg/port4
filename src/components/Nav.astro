@@ -1,0 +1,172 @@
+---
+import Icon from "./Icon.astro";
+
+/** Main menu items */
+const textLinks: { label: string; href: string }[] = [
+  { label: "Work", href: "/" },
+  { label: "Play", href: "/play/" },
+  { label: "About", href: "/about/" },
+];
+---
+
+<nav>
+  <div class="nav-container">
+    <a href="/" class="site-title">Celina Garcia</a>
+    <menu-button>
+      <template>
+        <button class="menu-button" aria-expanded="false">
+          <span class="sr-only">Menu</span>
+          <Icon icon="list" />
+        </button>
+      </template>
+    </menu-button>
+    <div id="menu-content" hidden>
+      <ul class="nav-items">
+        {
+          textLinks.map(({ label, href }) => (
+            <li>
+              <a
+                aria-current={Astro.url.pathname === href}
+                class:list={[
+                  "link",
+                  {
+                    active:
+                      Astro.url.pathname === href ||
+                      (href !== "/" && Astro.url.pathname.startsWith(href)),
+                  },
+                ]}
+                href={href}
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  class MenuButton extends HTMLElement {
+    constructor() {
+      super();
+
+      // Inject menu toggle button when JS runs.
+      this.appendChild(this.querySelector("template")!.content.cloneNode(true));
+      const btn = this.querySelector("button")!;
+
+      // Hide menu (shown by default to support no-JS browsers).
+      const menu = document.getElementById("menu-content")!;
+      menu.hidden = true;
+      // Add "menu-content" class in JS to avoid covering content in non-JS browsers.
+      menu.classList.add("menu-content");
+
+      /** Set whether the menu is currently expanded or collapsed. */
+      const setExpanded = (expand: boolean) => {
+        btn.setAttribute("aria-expanded", expand ? "true" : "false");
+        menu.hidden = !expand;
+      };
+
+      // Toggle menu visibility when the menu button is clicked.
+      btn.addEventListener("click", () => setExpanded(menu.hidden));
+
+      // Hide menu button for large screens.
+      const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {
+        setExpanded(e.matches);
+        btn.hidden = e.matches;
+      };
+      const mediaQueries = window.matchMedia("(min-width: 50em)");
+      handleViewports(mediaQueries);
+      mediaQueries.addEventListener("change", handleViewports);
+    }
+  }
+  customElements.define("menu-button", MenuButton);
+</script>
+
+<style>
+  nav {
+    z-index: 9999;
+    position: relative;
+    font-family: var(--font-headers);
+    margin-bottom: 3.5rem;
+    text-align: center;
+  }
+
+  .nav-container {
+    height: 20vh;
+    margin-top: 3.2rem;
+  }
+
+  .site-title {
+    display: block;
+    color: var(--gray-0);
+    text-decoration: none;
+    font-family: var(--font-brand);
+    font-size: var(--text-page) !important;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .menu-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-items {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Reduced gap */
+    font-size: var(--text-md);
+    line-height: 1.2;
+    list-style: none;
+    padding: 0;
+  }
+
+  .link {
+    display: inline-block;
+    color: var(--gray-300);
+    text-decoration: none;
+  }
+
+  .link.active {
+    color: var(--gray-0);
+  }
+
+  @media (min-width: 50em) {
+    .nav-container {
+      flex-direction: column;
+    }
+
+    .menu-content {
+      display: flex;
+    }
+
+    .nav-items {
+      flex-direction: row;
+      font-size: var(--text-sm);
+    }
+
+    .link {
+      padding: 0.5rem 1rem;
+      border-radius: 999rem;
+      transition:
+        color var(--theme-transition),
+        background-color var(--theme-transition);
+    }
+
+    .link:hover,
+    .link:focus {
+      color: var(--gray-100);
+      background-color: var(--accent-subtle-overlay);
+    }
+
+    .link.active {
+      color: var(--accent-text-over);
+      background-color: var(--accent-regular);
+    }
+  }
+</style>

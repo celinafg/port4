@@ -1,0 +1,163 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactCTA from "../../components/ContactCTA.astro";
+import Icon from "../../components/Icon.astro";
+import remarkParse from "remark-parse";
+import remarkHtml from "remark-html";
+import sectionizePlugin from "../../../sectionizePlugin";
+import { remark } from "remark";
+import directive from "../../plugins/directive";
+import myRemarkShortcodePlugin from "../../plugins/myRemarkShortcode";
+interface Props {
+  entry: CollectionEntry<"work">;
+}
+
+export async function getStaticPaths() {
+  const work = await getCollection("work");
+  return work.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const processor = remark()
+  .use(directive)
+  .use(remarkParse)
+  .use(sectionizePlugin)
+  .use(remarkHtml, { sanitize: false });
+
+const processed = processor.processSync(entry.body).toString();
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <div class="container">
+    <header class="case-study-header">
+      <a href="/#work" class="back-link">
+        <Icon icon="arrow-left" /> Back to Work
+      </a>
+      <h1>{entry.data.title}</h1>
+      <p class="description">{entry.data.description}</p>
+      <div class="tags">
+        {entry.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+      </div>
+    </header>
+
+    <main>
+      <Content
+        components={[
+          directive,
+          myRemarkShortcodePlugin,
+          remarkHtml,
+          sectionizePlugin,
+        ]}
+      />
+    </main>
+
+    <ContactCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .case-study-header {
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: var(--gray-500);
+  }
+
+  .back-link:hover,
+  .back-link:focus {
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-size: var(--text-4xl);
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: var(--text-lg);
+    color: var(--gray-700);
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    background-color: var(--gray-200);
+    color: var(--gray-800);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: var(--text-sm);
+  }
+
+  .main-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .case-study-content h2 {
+    font-size: var(--text-3xl);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .case-study-content h3 {
+    font-size: var(--text-2xl);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .case-study-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .case-study-content blockquote {
+    font-size: var(--text-lg);
+    padding: 1rem;
+    border-left: 5px solid var(--accent-color);
+    background: var(--gray-100);
+    margin: 1.5rem 0;
+  }
+
+  .case-study-content a {
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+
+  .case-study-content a:hover,
+  .case-study-content a:focus {
+    text-decoration: none;
+  }
+
+  @media (min-width: 768px) {
+    .case-study-content {
+    }
+
+    .main-image {
+      grid-column: span 2;
+    }
+  }
+</style>
