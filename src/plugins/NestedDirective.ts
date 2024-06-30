@@ -1,19 +1,26 @@
 import { visit } from "unist-util-visit";
 import { toHast } from "mdast-util-to-hast";
+import type { ContainerDirective } from "mdast-util-directive";
 
 export default function nestedDirective() {
-  return (tree) => {
-    visit(tree, "containerDirective", (node) => {
-      const { name } = node;
+  return (tree: any) => {
+    visit(tree, "containerDirective", (node: ContainerDirective) => {
       const data = node.data || (node.data = {});
 
-      data.hName = name;
+      data.hName = "div";
+
+      const attributes = node.attributes || {};
+      if (attributes.class) {
+        // Ensure multiple class names are handled correctly
+        attributes.className = attributes.class.split(" ").join(" ");
+        delete attributes.class;
+      }
+
       data.hProperties = {
-        ...node.attributes,
-        className: node.attributes?.className || "",
+        ...attributes,
       };
 
-      const hastChildren = node.children.map((child) => toHast(child));
+      const hastChildren = node.children.map(toHast);
 
       data.hChildren = hastChildren;
     });

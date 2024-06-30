@@ -3,10 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContactCTA from "../../components/ContactCTA.astro";
 import Icon from "../../components/Icon.astro";
-import remarkParse from "remark-parse";
-import remarkHtml from "remark-html";
 import sectionizePlugin from "../../../sectionizePlugin";
-import { remark } from "remark";
 import directive from "../../plugins/directive";
 import directiveHighlight from "../../plugins/Highlight";
 import directiveBreadcrumb from "../../plugins/Breadcrumb";
@@ -15,7 +12,6 @@ import directiveFeatureCard from "../../plugins/FeatureCard";
 import directiverRowColumnLayout from "../../plugins/RowColumnLayout";
 import nestedDirective from "../../plugins/NestedDirective";
 import fullWidthDirective from "../../plugins/FullWidthDirective";
-
 import {
   numberedListDirective,
   numberedItemDirective,
@@ -36,137 +32,142 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
-  <div class="container">
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  hasNav={false}
+>
+  <div class="">
     <header class="case-study-header">
       <a href="/#work" class="back-link">
         <Icon icon="arrow-left" /> Back to Work
       </a>
-      <h1>{entry.data.title}</h1>
-      <p class="description">{entry.data.description}</p>
-      <div class="tags">
-        {entry.data.tags.map((tag) => <span class="tag">{tag}</span>)}
-      </div>
     </header>
 
     <main>
-      <Content
-        class="content"
-        components={[
-          directive,
-          sectionizePlugin,
-          directiveHighlight,
-          directiveBreadcrumb,
-          directiveTabs,
-          directiveFeatureCard,
-          directiverRowColumnLayout,
-          nestedDirective,
-          fullWidthDirective,
-          numberedItemDirective,
-          numberedListDirective,
-        ]}
-      />
+      <div class="banner">
+        <img src={entry.data.img} alt="" />
+      </div>
+      <div class="container">
+        <Content
+          components={[
+            directive,
+            sectionizePlugin,
+            directiveHighlight,
+            directiveBreadcrumb,
+            directiveTabs,
+            directiveFeatureCard,
+            directiverRowColumnLayout,
+            nestedDirective,
+            fullWidthDirective,
+            numberedItemDirective,
+            numberedListDirective,
+          ]}
+        />
+      </div>
+
+      <ContactCTA />
     </main>
-
-    <ContactCTA />
   </div>
-</BaseLayout>
 
-<style>
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
+  <style>
+    .banner img {
+      width: 100vw;
+      object-fit: cover;
+    }
+    .container {
+      max-width: 54rem;
+      margin: 0 auto;
+      padding: 1rem;
+    }
 
-  .content {
-    max-width: 60rem;
-  }
+    .content {
+      max-width: 60rem;
+    }
 
-  .case-study-header {
-    text-align: left;
-    margin-bottom: 2rem;
-  }
+    .case-study-header {
+      text-align: left;
+      padding: 1.8rem 2rem 1rem 2rem;
+    }
 
-  .back-link {
-    display: inline-block;
-    margin-bottom: 1rem;
-    text-decoration: none;
-    color: var(--gray-500);
-  }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      color: var(--gray-500);
+    }
 
-  .back-link:hover,
-  .back-link:focus {
-    text-decoration: underline;
-  }
+    .back-link:hover,
+    .back-link:focus {
+      text-decoration: underline;
+    }
 
-  h1 {
-    margin-bottom: 1rem;
-  }
+    h1 {
+      margin-bottom: 1rem;
+    }
 
-  .description {
-    color: var(--gray-700);
-    margin-bottom: 1rem;
-  }
+    .description {
+      color: var(--gray-700);
+      margin-bottom: 1rem;
+      font-size: var(--text-template);
+    }
 
-  .tags {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
 
-  .tag {
-    background-color: var(--gray-200);
-    color: var(--gray-800);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-  }
-
-  .main-image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .case-study-content h2 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .case-study-content h3 {
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .case-study-content p {
-    margin-bottom: 1.5rem;
-  }
-
-  .case-study-content blockquote {
-    padding: 1rem;
-    border-left: 5px solid var(--accent-color);
-    background: var(--gray-100);
-    margin: 1.5rem 0;
-  }
-
-  .case-study-content a {
-    color: var(--primary-color);
-    text-decoration: underline;
-  }
-
-  .case-study-content a:hover,
-  .case-study-content a:focus {
-    text-decoration: none;
-  }
-
-  @media (min-width: 768px) {
-    .case-study-content {
+    .tag {
+      background-color: var(--gray-200);
+      color: var(--gray-800);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
     }
 
     .main-image {
-      grid-column: span 2;
+      width: 100%;
+      height: auto;
+      margin-bottom: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: var(--shadow-sm);
     }
-  }
-</style>
+
+    .case-study-content h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .case-study-content h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .case-study-content p {
+      margin-bottom: 1.5rem;
+    }
+
+    .case-study-content blockquote {
+      padding: 1rem;
+      border-left: 5px solid var(--accent-color);
+      background: var(--gray-100);
+      margin: 1.5rem 0;
+    }
+
+    .case-study-content a {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    .case-study-content a:hover,
+    .case-study-content a:focus {
+      text-decoration: none;
+    }
+
+    @media (min-width: 768px) {
+      .main-image {
+        grid-column: span 2;
+      }
+    }
+  </style>
+</BaseLayout>

@@ -108,6 +108,66 @@
   --theme-transition: 0.2s ease-in-out;
 }
 
+mark {
+  background-color: yellow;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+aside {
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+aside h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+aside p {
+  margin: 0;
+} /* Callouts */
+blockquote {
+  border-left: 4px solid #007bff;
+  background-color: #e9f5ff;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+blockquote.warning {
+  border-color: #ffc107;
+  background-color: #fff3cd;
+}
+
+blockquote.error {
+  border-color: #dc3545;
+  background-color: #f8d7da;
+}
+
+blockquote.success {
+  border-color: #28a745;
+  background-color: #d4edda;
+}
+
+/* Captions */
+figcaption {
+  font-size: 0.875rem;
+  color: #6c757d;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+figure img + figcaption {
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
 @media (max-width: 768px) {
   :root {
     --text-atom: 0.7rem;
@@ -144,11 +204,6 @@
   h5 {
     margin-top: 0.4rem;
     margin-bottom: 0.6rem;
-  }
-
-  h6 {
-    margin-top: 0.6rem;
-    margin-bottom: 0.4rem;
   }
 
   p,
@@ -255,18 +310,10 @@ h4 {
 
 h5 {
   font-size: var(--text-page);
-  margin-top: 0.5rem;
-  margin-bottom: 0.75rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 h6 {
   font-size: var(--text-template);
-  margin-top: 0.75rem;
-  margin-bottom: 0.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 p {

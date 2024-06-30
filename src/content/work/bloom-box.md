@@ -38,12 +38,12 @@ It is difficult to find an available time for both mentor and mentee.
 This is a full-width section with background color that spans the entire width of the viewport.
 ::::
 
-::::overview
+::::div{class=overview}
 :::div
 ### Feature Title 1
 Feature description goes here.
 :::
-:::div
+:::div{class=overview}
 ### Feature Title 2
 Feature description goes here.
 :::
