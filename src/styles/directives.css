@@ -1,4 +1,3 @@
-/* General styles for notes */
 .note {
   padding: 1rem;
   border-left: 4px solid #ccc;
@@ -10,7 +9,6 @@
   background-color: #fee;
 }
 
-/* Styles for feature cards */
 .feature-card {
   border: 1px solid #ccc;
   border-radius: 0.5rem;
@@ -26,7 +24,6 @@
   color: #666;
 }
 
-/* Full-width background sections */
 .full-width-background {
   position: relative;
   width: 100vw;
@@ -35,19 +32,15 @@
   margin-left: -50vw;
   margin-right: -50vw;
   padding: 2rem 0;
-  background-color: var(
-    --background-color,
-    pink
-  ); /* Default background color, can be overridden */
+  background-color: var(--background-color, pink);
 }
 
 .full-width-background .content {
-  max-width: 78rem; /* Adjust this to your main content width */
+  max-width: 78rem;
   margin: 0 auto;
-  padding: 0 2rem; /* Add padding if needed */
+  padding: 0 2rem;
 }
 
-/* Tabs styles */
 .tabs {
   display: flex;
   flex-direction: column;
@@ -60,7 +53,6 @@
   margin-bottom: 1rem;
 }
 
-/* Breadcrumb styles */
 .breadcrumb {
   padding: 1rem;
   background-color: #f9f9f9;
@@ -82,14 +74,12 @@
   content: "";
 }
 
-/* Highlight styles */
 .highlight {
   background-color: yellow;
   padding: 0.2rem;
   border-radius: 0.2rem;
 }
 
-/* Numbered item styles */
 .numbered-item {
   display: flex;
   align-items: flex-start;
@@ -119,7 +109,6 @@
 .overview {
   width: 80vw;
 }
-/* Full-width background sections */
 .full-width {
   position: relative;
   width: 100vw;
