@@ -19,12 +19,10 @@
 }
 
 .feature-card-title {
-  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
 .feature-card-content {
-  font-size: 1rem;
   color: #666;
 }
 
@@ -43,27 +41,10 @@
   ); /* Default background color, can be overridden */
 }
 
-/* Inner content container with max-width */
 .full-width-background .content {
   max-width: 78rem; /* Adjust this to your main content width */
   margin: 0 auto;
   padding: 0 2rem; /* Add padding if needed */
-}
-
-/* Accordion styles */
-.accordion {
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  margin: 1rem 0;
-}
-
-.accordion-item {
-  padding: 1rem;
-  border-top: 1px solid #ccc;
-}
-
-.accordion-item:first-child {
-  border-top: none;
 }
 
 /* Tabs styles */
@@ -116,7 +97,6 @@
 }
 
 .numbered-item-number {
-  font-size: 2rem;
   font-weight: bold;
   margin-right: 1rem;
 }
@@ -155,4 +135,64 @@
   max-width: 78rem;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+.numbered-list {
+  list-style: none;
+  margin-left: 1rem;
+  max-width: 46rem;
+}
+
+.numbered-list-item {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 2rem;
+}
+
+.numbered-list-item-number {
+  font-size: var(--text-organism);
+  font-weight: bold;
+  margin-right: 1rem;
+  color: #406d92;
+  flex-shrink: 0;
+}
+
+.numbered-list-item-content {
+  max-width: 60rem;
+}
+
+.numbered-list-item-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: var(--text-component);
+}
+.numbered-list-item-content h3 {
+  font-size: var(--text-component);
+}
+.numbered-list-item-description {
+  color: #666;
+}
+@media (max-width: 480px) {
+  .feature-card {
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .feature-card-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .full-width-background .content,
+  .full-width .content {
+    padding: 0 0.5rem;
+  }
+
+  .numbered-list {
+    margin: 0;
+    padding: 0 2rem;
+  }
+
+  .numbered-item-content {
+    max-width: 100%;
+  }
 }

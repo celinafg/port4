@@ -15,6 +15,11 @@ import directiveFeatureCard from "../../plugins/FeatureCard";
 import directiverRowColumnLayout from "../../plugins/RowColumnLayout";
 import nestedDirective from "../../plugins/NestedDirective";
 import fullWidthDirective from "../../plugins/FullWidthDirective";
+
+import {
+  numberedListDirective,
+  numberedItemDirective,
+} from "../../plugins/NumberedItem";
 interface Props {
   entry: CollectionEntry<"work">;
 }
@@ -57,6 +62,8 @@ const { Content } = await entry.render();
           directiverRowColumnLayout,
           nestedDirective,
           fullWidthDirective,
+          numberedItemDirective,
+          numberedListDirective,
         ]}
       />
     </main>
@@ -94,12 +101,10 @@ const { Content } = await entry.render();
   }
 
   h1 {
-    font-size: var(--text-4xl);
     margin-bottom: 1rem;
   }
 
   .description {
-    font-size: var(--text-lg);
     color: var(--gray-700);
     margin-bottom: 1rem;
   }
@@ -115,7 +120,6 @@ const { Content } = await entry.render();
     color: var(--gray-800);
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
-    font-size: var(--text-sm);
   }
 
   .main-image {
@@ -127,13 +131,11 @@ const { Content } = await entry.render();
   }
 
   .case-study-content h2 {
-    font-size: var(--text-3xl);
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
 
   .case-study-content h3 {
-    font-size: var(--text-2xl);
     margin-top: 1.5rem;
     margin-bottom: 1rem;
   }
@@ -143,7 +145,6 @@ const { Content } = await entry.render();
   }
 
   .case-study-content blockquote {
-    font-size: var(--text-lg);
     padding: 1rem;
     border-left: 5px solid var(--accent-color);
     background: var(--gray-100);

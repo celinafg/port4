@@ -10,6 +10,10 @@ import directiveFeatureCard from "./src/plugins/FeatureCard";
 import directiveRowColumnLayout from "./src/plugins/RowColumnLayout";
 import nestedDirective from "./src/plugins/NestedDirective";
 import fullWidthDirective from "./src/plugins/FullWidthDirective";
+import {
+  numberedListDirective,
+  numberedItemDirective,
+} from "./src/plugins/NumberedItem";
 export default defineConfig({
   integrations: [
     mdx({
@@ -24,6 +28,8 @@ export default defineConfig({
         directiveRowColumnLayout,
         nestedDirective,
         fullWidthDirective,
+        numberedItemDirective,
+        numberedListDirective,
       ],
     }),
   ],
@@ -39,6 +45,8 @@ export default defineConfig({
       directiveRowColumnLayout,
       nestedDirective,
       fullWidthDirective,
+      numberedItemDirective,
+      numberedListDirective,
     ],
     rehypePlugins: [],
   },

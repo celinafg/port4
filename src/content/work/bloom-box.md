@@ -12,11 +12,31 @@ tags:
   - Backend
 ---
 
-:::fullwidth
-### Section Title
-
-This is the content inside the section with a full-width background.
+::::numbered-list
+:::numbered-item
+01
+### the first title of my insight
+Information is scattered across various platforms.
 :::
+
+:::numbered-item
+02
+### the second title of my insight
+It is difficult to find an available time for both mentor and mentee.
+:::
+
+:::numbered-item
+03
+### Lthe third item ofmy insight
+:::
+::::
+
+::::full-width
+
+#### heyyyy
+
+This is a full-width section with background color that spans the entire width of the viewport.
+::::
 
 ::::overview
 :::div
@@ -29,11 +49,6 @@ Feature description goes here.
 :::
 ::::
 
-:::note{.warning}
-### Section Title
-
-This is the content inside the section with a full-width background.
-:::
 
 ::::note{.warning}
 :::feature-card
@@ -45,34 +60,9 @@ Feature description goes here.
 Feature description goes here.
 :::
 ::::
-hey
-
-:::tabs
-### Tab 1
-Content for tab 1.
-:::
-
-:::tabs
-### Tab 2
-Content for tab 2.
-:::
-
-:::breadcrumb
-Home / Page 1 / Page 2
-:::
-
-:::div{.warning}
-if you chose xxx, you should also use yyy somewhere…
-:::
-
-
-:::note{.warning}
-This is a section with a different background color.
-:::
 
 :::full-width-image{url="/assets/stock-2.jpg" alt="An example image"}
 :::
-
 
 ## Research Findings
 :::ul
@@ -110,9 +100,6 @@ This project is a demonstration of various markdown shortcodes.
 
 
 
-::accordion{title=ii}
-This content is hidden inside an accordion. Click the title to expand.
-:::
 
 
 
