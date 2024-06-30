@@ -16,7 +16,7 @@ export function numberedListDirective() {
         const data = node.data || (node.data = {});
         data.hName = "ul";
         data.hProperties = { className: "numbered-list" };
-
+        // @ts-ignore
         const hastChildren = node.children.map((child) => toHast(child));
         data.hChildren = hastChildren;
       }

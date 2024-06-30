@@ -19,7 +19,7 @@ export default function nestedDirective() {
       data.hProperties = {
         ...attributes,
       };
-
+      // @ts-ignore
       const hastChildren = node.children.map(toHast);
 
       data.hChildren = hastChildren;
