@@ -4,11 +4,6 @@
   margin: 1rem 0;
 }
 
-.note.warning {
-  border-color: #f00;
-  background-color: #fee;
-}
-
 .feature-card {
   border: 1px solid #ccc;
   border-radius: 0.5rem;
@@ -95,29 +90,8 @@
   flex: 1;
 }
 
-.full-width-background {
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  background-color: var(--background-color, pink);
-  padding: 2rem 0;
-}
-
 .overview {
   width: 80vw;
-}
-.full-width {
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  background-color: var(--background-color, pink);
-  padding: 2rem 0;
 }
 
 .full-width .content {
