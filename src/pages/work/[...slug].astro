@@ -8,7 +8,13 @@ import remarkHtml from "remark-html";
 import sectionizePlugin from "../../../sectionizePlugin";
 import { remark } from "remark";
 import directive from "../../plugins/directive";
-import myRemarkShortcodePlugin from "../../plugins/myRemarkShortcode";
+import directiveHighlight from "../../plugins/Highlight";
+import directiveBreadcrumb from "../../plugins/Breadcrumb";
+import directiveTabs from "../../plugins/Tabs";
+import directiveFeatureCard from "../../plugins/FeatureCard";
+import directiverRowColumnLayout from "../../plugins/RowColumnLayout";
+import nestedDirective from "../../plugins/NestedDirective";
+import fullWidthDirective from "../../plugins/FullWidthDirective";
 interface Props {
   entry: CollectionEntry<"work">;
 }
@@ -23,14 +29,6 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-
-const processor = remark()
-  .use(directive)
-  .use(remarkParse)
-  .use(sectionizePlugin)
-  .use(remarkHtml, { sanitize: false });
-
-const processed = processor.processSync(entry.body).toString();
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
@@ -48,11 +46,17 @@ const processed = processor.processSync(entry.body).toString();
 
     <main>
       <Content
+        class="content"
         components={[
           directive,
-          myRemarkShortcodePlugin,
-          remarkHtml,
           sectionizePlugin,
+          directiveHighlight,
+          directiveBreadcrumb,
+          directiveTabs,
+          directiveFeatureCard,
+          directiverRowColumnLayout,
+          nestedDirective,
+          fullWidthDirective,
         ]}
       />
     </main>
@@ -66,6 +70,10 @@ const processed = processor.processSync(entry.body).toString();
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem;
+  }
+
+  .content {
+    max-width: 60rem;
   }
 
   .case-study-header {

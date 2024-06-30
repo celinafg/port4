@@ -1,7 +1,7 @@
 ---
 title: Bloom Box
 publishDate: 2019-12-01 00:00:00
-img: /assets/stock-2.jpg
+img: '/assets/stock-2.jpg'
 img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
 description: |
   We paired with a cutting-edge music API and a team of horticulturalists
@@ -12,27 +12,111 @@ tags:
   - Backend
 ---
 
-## Testing custom directives
+:::fullwidth
+### Section Title
 
-:::notice{note}
-This is a note notice
+This is the content inside the section with a full-width background.
 :::
 
-:::image{id="https://dummyimage.com/300x200/000000/fff"}
+::::overview
+:::div
+### Feature Title 1
+Feature description goes here.
 :::
-
-::::card
-
-## This is common markdown
-
-:::image{id="https://dummyimage.com/300x200/000000/fff"}
+:::div
+### Feature Title 2
+Feature description goes here.
 :::
-
-:::notice{note}
-This is a note notice
-:::
-
 ::::
+
+:::note{.warning}
+### Section Title
+
+This is the content inside the section with a full-width background.
+:::
+
+::::note{.warning}
+:::feature-card
+### Feature Title 1
+Feature description goes here.
+:::
+:::feature-card
+### Feature Title 2
+Feature description goes here.
+:::
+::::
+hey
+
+:::tabs
+### Tab 1
+Content for tab 1.
+:::
+
+:::tabs
+### Tab 2
+Content for tab 2.
+:::
+
+:::breadcrumb
+Home / Page 1 / Page 2
+:::
+
+:::div{.warning}
+if you chose xxx, you should also use yyy somewhere…
+:::
+
+
+:::note{.warning}
+This is a section with a different background color.
+:::
+
+:::full-width-image{url="/assets/stock-2.jpg" alt="An example image"}
+:::
+
+
+## Research Findings
+:::ul
+This is the first finding.
+:::
+:::ul
+This is the second finding.
+:::
+:::ul
+This is the third finding.
+:::
+
+:::div
+:::feature-card
+### Feature Title
+Feature description goes here.
+:::
+
+
+
+
+
+# My Project
+
+## About This Project
+
+This project is a demonstration of various markdown shortcodes.
+
+### Features
+
+- Customizable sections with background colors
+- Two-column layouts
+- Accordions for collapsible content
+- Info boxes for different types of notes
+
+
+
+::accordion{title=ii}
+This content is hidden inside an accordion. Click the title to expand.
+:::
+
+
+
+
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam non ligula vel metus efficitur hendrerit. In hac habitasse platea dictumst. Praesent et mauris ut mi dapibus semper. Curabitur tortor justo, efficitur sit amet pretium cursus, porta eget odio. Cras ac venenatis dolor. Donec laoreet posuere malesuada. Curabitur nec mi tempor, placerat leo sit amet, tincidunt est. Quisque pellentesque venenatis magna, eget tristique nibh pulvinar in. Vestibulum vitae volutpat arcu. Aenean ut malesuada odio, sit amet pellentesque odio. Suspendisse nunc elit, blandit nec hendrerit non, aliquet at magna. Donec id leo ut nulla sagittis sodales.
 

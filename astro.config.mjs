@@ -1,10 +1,15 @@
 import sectionizePlugin from "./sectionizePlugin";
 import mdx from "@astrojs/mdx";
-import myRemarkShortcodePlugin from "./src/plugins/myRemarkShortcode";
 import directive from "./src/plugins/directive";
 import { defineConfig } from "astro/config";
 import remarkDirective from "remark-directive";
-
+import directiveHighlight from "./src/plugins/Highlight";
+import directiveBreadcrumb from "./src/plugins/Breadcrumb";
+import directiveTabs from "./src/plugins/Tabs";
+import directiveFeatureCard from "./src/plugins/FeatureCard";
+import directiveRowColumnLayout from "./src/plugins/RowColumnLayout";
+import nestedDirective from "./src/plugins/NestedDirective";
+import fullWidthDirective from "./src/plugins/FullWidthDirective";
 export default defineConfig({
   integrations: [
     mdx({
@@ -12,7 +17,13 @@ export default defineConfig({
         remarkDirective,
         directive,
         sectionizePlugin,
-        myRemarkShortcodePlugin,
+        directiveHighlight,
+        directiveBreadcrumb,
+        directiveTabs,
+        directiveFeatureCard,
+        directiveRowColumnLayout,
+        nestedDirective,
+        fullWidthDirective,
       ],
     }),
   ],
@@ -21,10 +32,14 @@ export default defineConfig({
       remarkDirective,
       directive,
       sectionizePlugin,
-      myRemarkShortcodePlugin,
+      directiveHighlight,
+      directiveBreadcrumb,
+      directiveTabs,
+      directiveFeatureCard,
+      directiveRowColumnLayout,
+      nestedDirective,
+      fullWidthDirective,
     ],
     rehypePlugins: [],
-    // syntaxHighlight: 'shiki'
-    // syntaxHighlight: 'prism'
   },
 });

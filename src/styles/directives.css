@@ -1,0 +1,158 @@
+/* General styles for notes */
+.note {
+  padding: 1rem;
+  border-left: 4px solid #ccc;
+  margin: 1rem 0;
+}
+
+.note.warning {
+  border-color: #f00;
+  background-color: #fee;
+}
+
+/* Styles for feature cards */
+.feature-card {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.feature-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card-content {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Full-width background sections */
+.full-width-background {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 2rem 0;
+  background-color: var(
+    --background-color,
+    pink
+  ); /* Default background color, can be overridden */
+}
+
+/* Inner content container with max-width */
+.full-width-background .content {
+  max-width: 78rem; /* Adjust this to your main content width */
+  margin: 0 auto;
+  padding: 0 2rem; /* Add padding if needed */
+}
+
+/* Accordion styles */
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.accordion-item {
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+}
+
+.accordion-item:first-child {
+  border-top: none;
+}
+
+/* Tabs styles */
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-item {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Breadcrumb styles */
+.breadcrumb {
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 0.5rem;
+}
+
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.breadcrumb li::after {
+  content: "/";
+  margin: 0 0.5rem;
+}
+
+.breadcrumb li:last-child::after {
+  content: "";
+}
+
+/* Highlight styles */
+.highlight {
+  background-color: yellow;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+
+/* Numbered item styles */
+.numbered-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.numbered-item-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.numbered-item-content {
+  flex: 1;
+}
+
+.full-width-background {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--background-color, pink);
+  padding: 2rem 0;
+}
+
+.overview {
+  width: 80vw;
+}
+/* Full-width background sections */
+.full-width {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--background-color, pink);
+  padding: 2rem 0;
+}
+
+.full-width .content {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
