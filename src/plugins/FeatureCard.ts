@@ -16,11 +16,11 @@ export default function directiveFeatureCard() {
         const contentNodes = node.children.filter(
           (child) => child.type !== "heading"
         );
-
         const cardTitle = titleNode
           ? h(
               "h3",
-              { className: "feature-card-title" },
+              { className: "feature-card-title" }, // @ts-ignore
+
               toHast(titleNode).children
             )
           : null;
