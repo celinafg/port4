@@ -21,7 +21,7 @@ const maxwidth = maxWidth ?? defaultMaxWidth;
 
 <style define:vars={{ bgcolor: bgcolor, mwidth: maxwidth }}>
   .section-wrapper {
-    background-color: var(--bgcolor);
+    background-color: pink;
     max-width: var(--maxwidth);
     position: relative;
     width: 100vw;
@@ -29,7 +29,6 @@ const maxwidth = maxWidth ?? defaultMaxWidth;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    display: flex;
     justify-content: center;
   }
 
@@ -42,15 +41,6 @@ const maxwidth = maxWidth ?? defaultMaxWidth;
     max-width: var(--mwidth);
   }
 
-  section {
-    padding: 6rem 0;
-  }
-
-  .section-container > :first-child {
-    font-size: var(--text-component);
-    font-weight: bold;
-    color: rgb(114, 189, 224);
-  }
   .section-container > :not(img) {
     max-width: 54rem;
     display: flex;

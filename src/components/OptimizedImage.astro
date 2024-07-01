@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+
+export interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  srcset?: string;
+  sizes?: string;
+  className?: string;
+  style?: string;
+}
+
+const { src, alt, width, height, srcset, sizes, className, style } =
+  Astro.props;
+---
+
+<div class={className} style={style}>
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading="lazy"
+    srcset={srcset}
+    sizes={sizes}
+  />
+</div>
+
+<style>
+  .image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+</style>

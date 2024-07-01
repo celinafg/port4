@@ -11,8 +11,9 @@ import SectionWrapper from "../../components/SectionWrapper.astro"
 import NumberedItem from "../../components/NumberedItem.astro"
 import NumberedList from "../../components/NumberedList.astro"
 
+import FullWidthSection from '../../components/FullWidthSection.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
 
-<section>
 # Kloa
 
 :::div{className="description"}
@@ -48,9 +49,10 @@ Angela Chan, Yangtian Yan, Avani Babar
 User Interviews
 :::
 </div>
-</section>
 
-<SectionWrapper backgroundColor="rgb(217, 225, 232, 0.5)" maxWidth="50rem">
+
+<FullWidthSection bgClass="gray"
+maxWidth="40rem">
   The Problem
   ### How flexible are users mental models around typing interface?
   Results from previous research and diary studies revealed that users had difficulties adopting the new keyboard layout. Our study focused on two hypotheses:
@@ -64,11 +66,10 @@ User Interviews
       ###### What can onboarding to help?
       Effective onboarding can enable users to successfully use KLOA (a variation of "best case" testing)
     </NumberedItem>
- 
   </NumberedList>
-</SectionWrapper>
+</FullWidthSection>
 
-<SectionWrapper>
+<FullWidthSection bgClass="lightblue">
 Research
 ### What are we testing?
 We tested the latest release at that time, but taped over the search input field and the word ribbon. We convered these UI elements ot mimic similar changes in KLOA's most recent design explorations.
@@ -113,8 +114,9 @@ We created a one-pager describing key features, across the native shopping UI an
 ![Image.png](https://res.cloudinary.com/digifab/image/upload/v1714165625/p4ioMedia/kloa/Image5_enlvcv.png)
 
 
-</SectionWrapper>
+</FullWidthSection>
 
+<FullWidthSection bgClass="red">
 
 ## Analysis and Findings
 
@@ -147,6 +149,7 @@ We used Sauro's severity scale because our tasks were broad and not complex, mak
 
    Participants felt frustrated by the experience and preferred QWERTY
 
+</FullWidthSection>
 
 ## Opportunities
 

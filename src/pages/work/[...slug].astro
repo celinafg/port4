@@ -3,19 +3,8 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContactCTA from "../../components/ContactCTA.astro";
 import Icon from "../../components/Icon.astro";
-import sectionizePlugin from "../../../sectionizePlugin";
-import directive from "../../plugins/directive";
-import directiveHighlight from "../../plugins/Highlight";
-import directiveBreadcrumb from "../../plugins/Breadcrumb";
-import directiveTabs from "../../plugins/Tabs";
-import directiveFeatureCard from "../../plugins/FeatureCard";
-import directiverRowColumnLayout from "../../plugins/RowColumnLayout";
-import nestedDirective from "../../plugins/NestedDirective";
-import fullWidthDirective from "../../plugins/FullWidthDirective";
-import {
-  numberedListDirective,
-  numberedItemDirective,
-} from "../../plugins/NumberedItem";
+
+import FullWidthSection from "../../components/FullWidthSection.astro";
 
 interface Props {
   entry: CollectionEntry<"work">;
@@ -38,7 +27,7 @@ const { Content } = await entry.render();
   description={entry.data.description}
   hasNav={false}
 >
-  <div class="">
+  <div class="case-study-wrapper">
     <header class="case-study-header">
       <a href="/#work" class="back-link">
         <Icon icon="arrow-left" /> Back to Work
@@ -50,7 +39,7 @@ const { Content } = await entry.render();
         <img src={entry.data.img} alt="" />
       </div>
       <div class="container">
-        <Content components={[]} />
+        <Content components={[FullWidthSection]} />
       </div>
 
       <ContactCTA />
@@ -58,14 +47,24 @@ const { Content } = await entry.render();
   </div>
 
   <style>
+    .case-study-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
     .banner img {
       width: 100vw;
       object-fit: cover;
     }
+
     .container {
       max-width: 54rem;
+      width: 100%;
       margin: 0 auto;
       padding: 1rem;
+      box-sizing: border-box;
     }
 
     .content {
@@ -75,6 +74,8 @@ const { Content } = await entry.render();
     .case-study-header {
       text-align: left;
       padding: 1.8rem 2rem 1rem 2rem;
+      width: 100%;
+      max-width: 54rem;
     }
 
     .back-link {
