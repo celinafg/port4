@@ -6,69 +6,76 @@ img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjGzdgugAGiD6iO8_mmc
 img_alt: ""
 publishDate: 2023-06-28
 ---
+import SectionWrapper from "../../components/SectionWrapper.astro"
 
+import NumberedItem from "../../components/NumberedItem.astro"
+import NumberedList from "../../components/NumberedList.astro"
+
+
+<section>
 # Kloa
 
-:::div{class=description}
+:::div{className="description"}
 Testing mental models around a new kind of keyboard and search interface designed to make search more efficient
 :::
 
-###### Overview
+
+###### Project Details
 
 Their new search experience is composed of a novel keyboard layout and contextual prediction. Their new search experience is composed of a novel keyboard layout and contextual prediction.
 
 <div class='roles'>
 
-:::div{class=role-item}
+:::div{className=role-item}
 ###### My Role
 UX Researcher
 :::
 
-:::div{class=role-item}
+:::div{className=role-item}
 ###### Timeline
 10 weeks
 :::
 
-:::div{class=role-item}
+:::div{className=role-item}
 ###### Team Members
 flo truong, 
 Angela Chan, Yangtian Yan, Avani Babar
 :::
 
 
-:::div{class=role-item}
+:::div{className=role-item}
 ###### Methods
 User Interviews
 :::
 </div>
+</section>
 
+<SectionWrapper backgroundColor="rgb(217, 225, 232, 0.5)" maxWidth="50rem">
+  The Problem
+  ### How flexible are users mental models around typing interface?
+  Results from previous research and diary studies revealed that users had difficulties adopting the new keyboard layout. Our study focused on two hypotheses:
 
-::::div{class="full-width-background gray"}
-:::div{class="container"}
-## The Problem
+  <NumberedList>
+    <NumberedItem index={0}>
+      ###### Can we introduce the experience in a new way?
+      If users don't think of KLOA as a keyboard, they won't try and use it like a QWERTY keyboard
+    </NumberedItem>
+    <NumberedItem index={1}>
+      ###### What can onboarding to help?
+      Effective onboarding can enable users to successfully use KLOA (a variation of "best case" testing)
+    </NumberedItem>
+ 
+  </NumberedList>
+</SectionWrapper>
 
-Results from previous research and diary studies revealed that users had difficulties adopting the new keyboard layout. Our study focused on two hypotheses:
-
-1. If users don't think of KLOA as a keyboard, they won't try and use it like a QWERTY keyboard
-2. Effective onboarding can enable users to successfully use KLOA (a variation of "best case" testing)
-:::
-::::
-
-
-
-## Research
-
+<SectionWrapper>
+Research
 ### What are we testing?
-
 We tested the latest release at that time, but taped over the search input field and the word ribbon. We convered these UI elements ot mimic similar changes in KLOA's most recent design explorations.
 
 
 <img src="https://res.cloudinary.com/digifab/image/upload/v1714165624/p4ioMedia/kloa/Image2_jy10re.png"/>
-
-
-
 <img src="https://res.cloudinary.com/digifab/image/upload/v1714165623/p4ioMedia/kloa/Image_fgp611.png"/>
-
 
 ### One Pager
 
@@ -105,8 +112,10 @@ We created a one-pager describing key features, across the native shopping UI an
 
 ![Image.png](https://res.cloudinary.com/digifab/image/upload/v1714165625/p4ioMedia/kloa/Image5_enlvcv.png)
 
-::::div{class="full-width-background gray"}
-:::div{class="container"}
+
+</SectionWrapper>
+
+
 ## Analysis and Findings
 
 We used Sauro's severity scale because our tasks were broad and not complex, making it better suited for our case. At request, I can provide the more exhaustive and comprehensive documentation on these issues. At the client's request, I have hiddent the level rating for each finding and summarized some insights.
@@ -138,8 +147,7 @@ We used Sauro's severity scale because our tasks were broad and not complex, mak
 
    Participants felt frustrated by the experience and preferred QWERTY
 
-:::
-::::
+
 ## Opportunities
 
 1. The search experience is more than input. How might KLOA take into consideration other aspects of the search experience?

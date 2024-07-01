@@ -16,6 +16,7 @@ import {
   numberedListDirective,
   numberedItemDirective,
 } from "../../plugins/NumberedItem";
+
 interface Props {
   entry: CollectionEntry<"work">;
 }
@@ -49,21 +50,7 @@ const { Content } = await entry.render();
         <img src={entry.data.img} alt="" />
       </div>
       <div class="container">
-        <Content
-          components={[
-            directive,
-            sectionizePlugin,
-            directiveHighlight,
-            directiveBreadcrumb,
-            directiveTabs,
-            directiveFeatureCard,
-            directiverRowColumnLayout,
-            nestedDirective,
-            fullWidthDirective,
-            numberedItemDirective,
-            numberedListDirective,
-          ]}
-        />
+        <Content components={[]} />
       </div>
 
       <ContactCTA />

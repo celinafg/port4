@@ -10,9 +10,12 @@
   padding: 1rem;
   margin: 1rem 0;
 }
-section {
-  margin: 10rem 0;
+.section-container > :first-child {
+  font-size: var(--text-component);
+  font-weight: bold;
+  color: rgb(69, 112, 131);
 }
+
 .feature-card-title {
   margin-bottom: 0.5rem;
 }
@@ -20,6 +23,7 @@ section {
 .feature-card-content {
   color: #666;
 }
+
 .full-width-background {
   display: flex;
   justify-content: center;
@@ -90,48 +94,12 @@ section {
   width: 80vw;
 }
 
-.numbered-list {
-  list-style: none;
-  margin-left: 1rem;
-  max-width: 46rem;
-}
-
-.numbered-list-item {
-  display: flex;
-  align-items: baseline;
-  margin-bottom: 2rem;
-}
-
-.numbered-list-item-number {
-  font-size: var(--text-organism);
-  font-weight: bold;
-  margin-right: 1rem;
-  color: #406d92;
-  flex-shrink: 0;
-}
-
 .gray {
-  background-color: rgb(204 214 219);
+  background-color: rgba(217, 228, 235, 0.401);
 }
 
 .lightblue {
   background-color: #cedce8;
-}
-
-.numbered-list-item-content {
-  max-width: 60rem;
-}
-
-.numbered-list-item-title {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  font-size: var(--text-component);
-}
-.numbered-list-item-content h3 {
-  font-size: var(--text-component);
-}
-.numbered-list-item-description {
-  color: #666;
 }
 
 .description p {
@@ -163,21 +131,18 @@ section {
     padding: 0 0.5rem;
   }
 
-  .numbered-list {
-    margin: 0;
-    padding: 0 2rem;
-  }
-
   .numbered-item-content {
     max-width: 100%;
   }
 }
 
+section {
+  padding: 2rem 0;
+}
 .roles {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  margin-bottom: 12rem;
 }
 
 .role-item {
@@ -187,11 +152,11 @@ section {
   max-width: 10rem;
 }
 
-.role-item h6 {
+.role-item {
   font-size: var(--text-organism);
 }
 
-.description + h6 + p {
+.description + p {
   max-width: 41rem;
   padding: 2rem 0;
 }
@@ -223,8 +188,31 @@ section {
   h1 {
     padding-top: 2rem;
   }
-  .description + h6 + p {
+  .description + p {
     max-width: 41rem;
     padding: 0.3rem 0;
   }
+}
+ol {
+  list-style: none; /* Remove default bullets */
+  margin-left: 1rem;
+  max-width: 46rem;
+  padding: 0; /* Reset padding */
+  counter-reset: item; /* Initialize counter for the list */
+}
+
+ol > li {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 2rem;
+}
+
+ol > li::before {
+  content: counter(item) ". "; /* Use counter for numbering */
+  counter-increment: item; /* Increment counter */
+  font-size: var(--text-organism);
+  font-weight: bold;
+  margin-right: 1rem;
+  color: #406d92;
+  flex-shrink: 0;
 }

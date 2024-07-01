@@ -192,10 +192,6 @@ figure img + figcaption {
     margin-bottom: 1rem;
   }
 
-  h3 {
-    margin-top: 1.4rem;
-  }
-
   h4 {
     margin-top: 1rem;
     margin-bottom: 0.8rem;
@@ -296,8 +292,8 @@ h2 {
 
 h3 {
   font-size: var(--text-3xl);
-  margin-top: 1.7rem;
-  padding: 0.4rem 0;
+  line-height: 1.2;
+  padding: 0.5rem 2rem 1.3rem 0;
 }
 
 h4 {
@@ -313,7 +309,7 @@ h5 {
 }
 
 h6 {
-  font-size: var(--text-template);
+  font-size: var(--text-component);
 }
 
 p {

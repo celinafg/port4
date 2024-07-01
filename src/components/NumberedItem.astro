@@ -1,0 +1,37 @@
+---
+interface Props {}
+---
+
+<div class="numbered-list-item">
+  <span class="numbered-list-item-number"></span>
+  <div class="numbered-list-item-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .numbered-list-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.4rem;
+    counter-increment: item;
+  }
+
+  .numbered-list-item-number::before {
+    content: counter(item, decimal-leading-zero);
+    font-size: var(--text-organism);
+    font-weight: bold;
+    margin-right: 1rem;
+    color: #406d92;
+    flex-shrink: 0;
+  }
+
+  .numbered-list-item-number {
+    margin-top: 2px;xx
+  }
+
+  .numbered-list-item-content {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
