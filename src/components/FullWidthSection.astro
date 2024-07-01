@@ -11,39 +11,34 @@ const { bgClass, sectionClass, maxWidth = "40rem" } = Astro.props;
 <section class={`full-width-background ${bgClass || ""}`}>
   <div class={`section-container ${sectionClass || ""}`}>
     <div class="text-container">
-      <slot class="slot" />
+      <slot />
     </div>
   </div>
 </section>
 
 <style define:vars={{ mwidth: maxWidth }}>
   .full-width-background {
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding: 2rem 0;
+    width: 100%;
+    padding: 5rem 0;
   }
 
   .section-container {
     width: 100%;
-    padding: 2rem 1rem;
     margin: 0 auto;
     text-align: left;
+    position: relative;
   }
 
   .text-container {
-    width: 100%;
-    padding: 0 1rem;
+    max-width: 54rem;
     margin: 0 auto;
   }
 
-  .text-container p {
-    color: rebeccapurple;
+  .text-container > :not(.full-width-image-container) {
+    padding-right: 10vw;
   }
 
-  .section-container > :not(img) {
-    max-width: 54rem;
-    padding-right: 10vw;
+  .text-container > .full-width-image-container {
+    margin-left: calc(-50vw + 50%);
   }
 </style>

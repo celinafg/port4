@@ -1,0 +1,43 @@
+---
+export interface Props {
+  images: Array<{ src: string; alt: string }>;
+  className?: string;
+}
+
+const { images = [], className = "" } = Astro.props;
+const imgLength = images.length ?? [];
+---
+
+<div class="full-width-image-container">
+  {
+    images.map((image) => (
+      <img src={image.src} alt={image.alt} class={className} />
+    ))
+  }
+</div>
+
+<style define:vars={{ imgs: imgLength }}>
+  .full-width-image-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .full-width-image-container img {
+    width: calc(100% / {var(--imgs)});
+    height: auto;
+    margin: 3rem 0;
+  }
+
+  @media (max-width: 767px) {
+    .full-width-image-container {
+      flex-direction: column;
+    }
+
+    .full-width-image-container img {
+      width: 100%;
+    }
+  }
+</style>

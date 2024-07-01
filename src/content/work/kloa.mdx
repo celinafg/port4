@@ -13,6 +13,7 @@ import NumberedList from "../../components/NumberedList.astro"
 
 import FullWidthSection from '../../components/FullWidthSection.astro';
 import OptimizedImage from '../../components/OptimizedImage.astro';
+import FullWidthImageSection from "../../components/FullWidthImageSection.astro";
 
 # Kloa
 
@@ -73,10 +74,55 @@ maxWidth="40rem">
 Research
 ### What are we testing?
 We tested the latest release at that time, but taped over the search input field and the word ribbon. We convered these UI elements ot mimic similar changes in KLOA's most recent design explorations.
+</FullWidthSection>
 
+  <FullWidthImageSection src="https://res.cloudinary.com/digifab/image/upload/v1714165624/p4ioMedia/kloa/Image2_jy10re.png" alt="Example Image 1" className="custom-image-class" />
 
-<img src="https://res.cloudinary.com/digifab/image/upload/v1714165624/p4ioMedia/kloa/Image2_jy10re.png"/>
-<img src="https://res.cloudinary.com/digifab/image/upload/v1714165623/p4ioMedia/kloa/Image_fgp611.png"/>
+<FullWidthImageSection>
+  <OptimizedImage
+    src="https://res.cloudinary.com/digifab/image/upload/v1714165624/p4ioMedia/kloa/Image2_jy10re.png"
+    alt="Example Image 1"
+    width={300}
+    height={200}
+    className="custom-image-class"
+  />
+  <OptimizedImage
+    src="https://res.cloudinary.com/digifab/image/upload/v1714165623/p4ioMedia/kloa/Image_fgp611.png"
+    alt="Example Image 2"
+    width={300}
+    height={200}
+    className="custom-image-class"
+  />
+</FullWidthImageSection>
+
+<FullWidthSection bgClass="gray" sectionClass="custom" maxWidth="40rem">
+  The Problem
+  ### How flexible are users' mental models around typing interface?
+  Results from previous research and diary studies revealed that users had difficulties adopting the new keyboard layout. Our study focused on two hypotheses:
+
+  <NumberedList>
+    <NumberedItem index={0}>
+      ###### Can we introduce the experience in a new way?
+      If users don't think of KLOA as a keyboard, they won't try and use it like a QWERTY keyboard.
+    </NumberedItem>
+    <NumberedItem index={1}>
+      ###### What can onboarding do to help?
+      Effective onboarding can enable users to successfully use KLOA (a variation of "best case" testing).
+    </NumberedItem>
+  </NumberedList>
+
+  
+  Title of images go here 
+  
+  <FullWidthImageSection 
+    images={[
+      { src: "https://res.cloudinary.com/digifab/image/upload/v1714165623/p4ioMedia/kloa/Image_fgp611.png", alt: "Example Image 1" },
+      { src: "https://res.cloudinary.com/digifab/image/upload/v1714165623/p4ioMedia/kloa/Image_fgp611.png", alt: "Example Image 2" },
+    ]}
+    className="custom-image-class" 
+  />
+</FullWidthSection>
+
 
 ### One Pager
 
@@ -96,11 +142,11 @@ We created a one-pager describing key features, across the native shopping UI an
 >
 > <p>Using mixed methods was a strategic choice for this project, because it incorporated the "what" from quantitative data with the "why" from qualitative insights,. Together this provided a more nuanced view of user frustration, why it happens, and to what degree they might be frustrated, which was valuable information for an early stage company and product. The quantiative methods allowed us to provide concerete numerical data that helped in identifying areas of difficulty using the itnerface, and to what degree. The qualitative data enriched these findings by adding context and depth to quantiative findings. Taking these quantiative findings during the interview also allowed us to probe more about their experience, expectations, and difficulties with this new search mental model.</p>
 
-
+<div className="image-container">
 ![Image.png](https://res.cloudinary.com/digifab/image/upload/v1714165627/p4ioMedia/kloa/Image3_k0meao.png)
 
 ![Image.png](https://res.cloudinary.com/digifab/image/upload/v1714165626/p4ioMedia/kloa/Image4_iytpwt.png)
-
+</div>
 
 ### What were the tasks?
 
@@ -114,7 +160,6 @@ We created a one-pager describing key features, across the native shopping UI an
 ![Image.png](https://res.cloudinary.com/digifab/image/upload/v1714165625/p4ioMedia/kloa/Image5_enlvcv.png)
 
 
-</FullWidthSection>
 
 <FullWidthSection bgClass="red">
 
