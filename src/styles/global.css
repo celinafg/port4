@@ -168,46 +168,6 @@ figure img + figcaption {
   margin-top: -0.5rem;
   margin-bottom: 1.5rem;
 }
-@media (max-width: 768px) {
-  :root {
-    --text-atom: 0.7rem;
-    --text-molecule: 0.8rem;
-    --text-organism: 0.9rem;
-    --text-component: 1.1rem;
-    --text-template: 1.3rem;
-    --text-page: 1.5rem;
-    --text-2xl: 1.75rem;
-    --text-3xl: 2rem;
-    --text-4xl: 2.5rem;
-    --text-5xl: 3rem;
-  }
-
-  html,
-  body {
-    margin: 0 1rem;
-  }
-
-  h4 {
-    margin-top: 1rem;
-    margin-bottom: 0.8rem;
-  }
-
-  h5 {
-    margin-top: 0.4rem;
-    margin-bottom: 0.6rem;
-  }
-
-  p,
-  .text-atom,
-  .text-molecule {
-    margin-top: 0.4rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .wrapper {
-    padding-inline: 1rem;
-  }
-}
 
 html,
 body {
@@ -275,6 +235,8 @@ h5 {
 
 h1 {
   font-size: var(--text-5xl);
+  line-height: 1.2;
+  padding: 1rem 0;
 }
 
 h2 {
@@ -304,6 +266,7 @@ h6 {
 }
 
 p {
+  padding: 0.4rem 0;
   font-size: var(--text-organism);
 }
 
@@ -407,7 +370,7 @@ p {
 
 .description p {
   font-size: var(--text-component);
-  padding: 0.1rem 15rem 2rem 0;
+  padding: 0.1rem 0 3rem 0;
 }
 
 .case-overview {
@@ -498,4 +461,52 @@ p {
 
 .text-container > :not(.full-width-image-container) {
   padding-right: 10vw;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --text-atom: 0.625rem; /* Adjusted smaller for mobile */
+    --text-molecule: 0.75rem;
+    --text-organism: 0.875rem;
+    --text-component: 1rem;
+    --text-template: 1.25rem;
+    --text-page: 1.5rem;
+    --text-2xl: 1.75rem;
+    --text-3xl: 2rem;
+    --text-4xl: 2.5rem;
+    --text-5xl: 3rem;
+  }
+
+  h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  h5 {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  p,
+  .text-atom,
+  .text-molecule {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .wrapper {
+    padding-inline: 1rem;
+  }
+  h1 {
+    font-size: var(--text-2xl);
+  }
+
+  .text-container {
+    max-width: auto;
+    margin: 0 auto;
+  }
+
+  .text-container > :not(.full-width-image-container) {
+    padding-right: 0;
+  }
 }
