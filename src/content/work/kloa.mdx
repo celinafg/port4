@@ -6,14 +6,13 @@ img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjGzdgugAGiD6iO8_mmc
 img_alt: ""
 publishDate: 2023-06-28
 ---
-import SectionWrapper from "../../components/SectionWrapper.astro"
-
 import NumberedItem from "../../components/NumberedItem.astro"
 import NumberedList from "../../components/NumberedList.astro"
-
 import FullWidthSection from '../../components/FullWidthSection.astro';
 import OptimizedImage from '../../components/OptimizedImage.astro';
 import FullWidthImageSection from "../../components/FullWidthImageSection.astro";
+
+<FullWidthSection>
 
 # Kloa
 
@@ -50,10 +49,9 @@ Angela Chan, Yangtian Yan, Avani Babar
 User Interviews
 :::
 </div>
+</FullWidthSection>
 
-
-<FullWidthSection bgClass="gray"
-maxWidth="40rem">
+<FullWidthSection bgClass="gray">
   The Problem
   ### How flexible are users mental models around typing interface?
   Results from previous research and diary studies revealed that users had difficulties adopting the new keyboard layout. Our study focused on two hypotheses:
@@ -70,65 +68,23 @@ maxWidth="40rem">
   </NumberedList>
 </FullWidthSection>
 
-<FullWidthSection bgClass="lightblue">
+<FullWidthSection >
 Research
 ### What are we testing?
 We tested the latest release at that time, but taped over the search input field and the word ribbon. We convered these UI elements ot mimic similar changes in KLOA's most recent design explorations.
-</FullWidthSection>
 
-  <FullWidthImageSection src="https://res.cloudinary.com/digifab/image/upload/v1714165624/p4ioMedia/kloa/Image2_jy10re.png" alt="Example Image 1" className="custom-image-class" />
-
-<FullWidthImageSection>
-  <OptimizedImage
-    src="https://res.cloudinary.com/digifab/image/upload/v1714165624/p4ioMedia/kloa/Image2_jy10re.png"
-    alt="Example Image 1"
-    width={300}
-    height={200}
-    className="custom-image-class"
-  />
-  <OptimizedImage
-    src="https://res.cloudinary.com/digifab/image/upload/v1714165623/p4ioMedia/kloa/Image_fgp611.png"
-    alt="Example Image 2"
-    width={300}
-    height={200}
-    className="custom-image-class"
-  />
-</FullWidthImageSection>
-
-<FullWidthSection bgClass="gray" sectionClass="custom" maxWidth="40rem">
-  The Problem
-  ### How flexible are users' mental models around typing interface?
-  Results from previous research and diary studies revealed that users had difficulties adopting the new keyboard layout. Our study focused on two hypotheses:
-
-  <NumberedList>
-    <NumberedItem index={0}>
-      ###### Can we introduce the experience in a new way?
-      If users don't think of KLOA as a keyboard, they won't try and use it like a QWERTY keyboard.
-    </NumberedItem>
-    <NumberedItem index={1}>
-      ###### What can onboarding do to help?
-      Effective onboarding can enable users to successfully use KLOA (a variation of "best case" testing).
-    </NumberedItem>
-  </NumberedList>
-
-  
-  Title of images go here 
-  
   <FullWidthImageSection 
     images={[
-      { src: "https://res.cloudinary.com/digifab/image/upload/v1714165623/p4ioMedia/kloa/Image_fgp611.png", alt: "Example Image 1" },
+      { src: "https://res.cloudinary.com/digifab/image/upload/v1714165624/p4ioMedia/kloa/Image2_jy10re.png", alt: "Example Image 1" },
       { src: "https://res.cloudinary.com/digifab/image/upload/v1714165623/p4ioMedia/kloa/Image_fgp611.png", alt: "Example Image 2" },
     ]}
     className="custom-image-class" 
   />
-</FullWidthSection>
 
 
 ### One Pager
 
 We created a one-pager describing key features, across the native shopping UI and KLOA's UI. Participants were asked to read the one pager as part of their first task.
-
-
 
 ### What did we want to learn?
 
@@ -142,11 +98,12 @@ We created a one-pager describing key features, across the native shopping UI an
 >
 > <p>Using mixed methods was a strategic choice for this project, because it incorporated the "what" from quantitative data with the "why" from qualitative insights,. Together this provided a more nuanced view of user frustration, why it happens, and to what degree they might be frustrated, which was valuable information for an early stage company and product. The quantiative methods allowed us to provide concerete numerical data that helped in identifying areas of difficulty using the itnerface, and to what degree. The qualitative data enriched these findings by adding context and depth to quantiative findings. Taking these quantiative findings during the interview also allowed us to probe more about their experience, expectations, and difficulties with this new search mental model.</p>
 
-<div className="image-container">
-![Image.png](https://res.cloudinary.com/digifab/image/upload/v1714165627/p4ioMedia/kloa/Image3_k0meao.png)
-
-![Image.png](https://res.cloudinary.com/digifab/image/upload/v1714165626/p4ioMedia/kloa/Image4_iytpwt.png)
-</div>
+ <FullWidthImageSection 
+    images={[
+      { src: "https://res.cloudinary.com/digifab/image/upload/v1714165627/p4ioMedia/kloa/Image3_k0meao.png", alt: "Example Image 1" },
+      { src: "https://res.cloudinary.com/digifab/image/upload/v1714165626/p4ioMedia/kloa/Image4_iytpwt.png", alt: "Example Image 2" },
+    ]}
+  />
 
 ### What were the tasks?
 
@@ -157,18 +114,24 @@ We created a one-pager describing key features, across the native shopping UI an
 5. **Task 3**: Find 4 items (we provided the words apples, onions, broccoli, sparkling water on a tablet for them to reference)
 6. **Evaluation**: Post task questionnaire (User Burden Scale) assessing difficulty of use was given, as well as likert questions on likelihood of use and advocacy. Administering these during the sessions allowed us to probe on their scored answers.
 
-![Image.png](https://res.cloudinary.com/digifab/image/upload/v1714165625/p4ioMedia/kloa/Image5_enlvcv.png)
 
 
+ <FullWidthImageSection 
+    images={[
+      { src: "https://res.cloudinary.com/digifab/image/upload/v1714165625/p4ioMedia/kloa/Image5_enlvcv.png", alt: "Example Image 1" },
+    ]}
+  />
 
-<FullWidthSection bgClass="red">
+
+</FullWidthSection >
+
+<FullWidthSection bgClass="gray">
 
 ## Analysis and Findings
 
 We used Sauro's severity scale because our tasks were broad and not complex, making it better suited for our case. At request, I can provide the more exhaustive and comprehensive documentation on these issues. At the client's request, I have hiddent the level rating for each finding and summarized some insights.
 
 
-![Image.gif](https://res.cloudinary.com/digifab/image/upload/v1714165628/p4ioMedia/kloa/Image_v361jt.gif)
 
 1. **I like the efficient contextual search results**
 
@@ -194,8 +157,6 @@ We used Sauro's severity scale because our tasks were broad and not complex, mak
 
    Participants felt frustrated by the experience and preferred QWERTY
 
-</FullWidthSection>
-
 ## Opportunities
 
 1. The search experience is more than input. How might KLOA take into consideration other aspects of the search experience?
@@ -210,9 +171,14 @@ We used Sauro's severity scale because our tasks were broad and not complex, mak
 
 Given the time constraints, we had a small sample size, and participants were mostly in the tech industry. Our focus was on testing whether priming users through a one pager could make the experience better. A one pager is not the only form of priming that can be done - future studies can consider testing the level of information needed as well as format of the information (tooltips, labels, videos). If the study is conducted with a printed paper, we would suggest asking the participants to read it aloud.
 
+</FullWidthSection>
+<FullWidthSection>
+
+### Learnings 
 We would also recommend to run the test with an experienced and familiar user, to make sure that testing is "best case". Due to participant selection and recruitment (KLOA is not used yet in the market), we were not able to recruit and expert user. Being able to test on an expert and familiar user, and understanding whether tasks can be completed would be a good data point to consider.
 
-## Reflection
 
 1. Working with an early stage product
 2. Understanding mental models
+
+</FullWidthSection>

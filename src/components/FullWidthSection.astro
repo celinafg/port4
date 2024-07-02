@@ -3,15 +3,16 @@ export interface Props {
   bgClass?: string;
   sectionClass?: string;
   maxWidth: string;
+  textClass?: string;
 }
 
-const { bgClass, sectionClass, maxWidth = "40rem" } = Astro.props;
+const { bgClass, sectionClass, maxWidth = "52rem", textClass } = Astro.props;
 ---
 
 <section class={`full-width-background ${bgClass || ""}`}>
   <div class={`section-container ${sectionClass || ""}`}>
-    <div class="text-container">
-      <slot />
+    <div class={`text-container ${textClass || ""}`}>
+      <slot class="slot" />
     </div>
   </div>
 </section>
@@ -30,15 +31,12 @@ const { bgClass, sectionClass, maxWidth = "40rem" } = Astro.props;
   }
 
   .text-container {
-    max-width: 54rem;
+    max-width: var(--mwidth);
     margin: 0 auto;
+    padding: 0 1rem;
   }
 
   .text-container > :not(.full-width-image-container) {
     padding-right: 10vw;
-  }
-
-  .text-container > .full-width-image-container {
-    margin-left: calc(-50vw + 50%);
   }
 </style>

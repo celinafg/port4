@@ -3,7 +3,6 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContactCTA from "../../components/ContactCTA.astro";
 import Icon from "../../components/Icon.astro";
-
 import FullWidthSection from "../../components/FullWidthSection.astro";
 
 interface Props {
@@ -39,7 +38,7 @@ const { Content } = await entry.render();
         <img src={entry.data.img} alt="" />
       </div>
       <div class="container">
-        <Content components={[FullWidthSection]} />
+        <Content components={[]} />
       </div>
 
       <ContactCTA />
@@ -135,37 +134,6 @@ const { Content } = await entry.render();
 
     .case-study-content a {
       color: var(--primary-color);
-      text-decoration: underline;
+      text
     }
-
-    .case-study-content a:hover,
-    .case-study-content a:focus {
-      text-decoration: none;
-    }
-
-    .image-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .image-container img {
-      flex: 1 1 calc(50% - 1rem); /* Two columns */
-      max-width: calc(50% - 1rem);
-      height: auto;
-    }
-
-    @media (max-width: 768px) {
-      .image-container img {
-        flex: 1 1 100%; /* Full width on smaller screens */
-        max-width: 100%;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .main-image {
-        grid-column: span 2;
-      }
-    }
-  </style>
-</BaseLayout>
+    </style>

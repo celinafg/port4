@@ -73,6 +73,7 @@ const { data, slug } = Astro.props.project;
 
   img {
     width: 100%;
+    height: 300px; /* Set a fixed height */
     object-fit: cover;
     transition: transform 0.3s ease; /* Smooth image scaling */
   }
@@ -81,11 +82,22 @@ const { data, slug } = Astro.props.project;
     transform: scale(1.05); /* Scale image on hover */
   }
 
-  @media (min-width: 50em) {
-    .card {
-    }
+  img {
+    width: 100%;
+    height: 300px; /* Set a fixed height */
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Smooth image scaling */
+  }
 
-    .card-title {
+  @media (min-width: 50em) {
+    img {
+      height: 250px; /* Adjust height for larger screens */
+    }
+  }
+
+  @media (max-width: 768px) {
+    img {
+      height: 200px; /* Adjust height for smaller screens */
     }
   }
 </style>

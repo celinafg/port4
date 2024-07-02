@@ -72,9 +72,9 @@ const projects = (await getCollection("work"))
             {
               projects.map((project) => {
                 return (
-                  <li>
+                  <div class="portfolio-preview">
                     <PortfolioPreview project={project} />
-                  </li>
+                  </div>
                 );
               })
             }
@@ -109,10 +109,6 @@ const projects = (await getCollection("work"))
 
   .left-container {
     max-width: 53ch;
-  }
-
-  .gray {
-    color: gray;
   }
 
   @media (min-width: 50em) {
