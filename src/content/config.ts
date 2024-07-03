@@ -19,6 +19,7 @@ export const collections = {
         })
         .optional(),
       link: z.string().optional(),
+      draft: z.boolean().optional(),
     }),
   }),
 };
