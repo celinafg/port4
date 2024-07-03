@@ -60,11 +60,10 @@ const { data, slug } = Astro.props.project;
   }
 
   .card-tags {
-    margin-top: 0.3rem;
     padding-top: 0;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
     color: rgb(109, 115, 122);
-    font-size: var(--text-molecule) !important;
+    font-size: var(--text-molecule);
   }
 
   .card-des {
@@ -73,31 +72,31 @@ const { data, slug } = Astro.props.project;
 
   img {
     width: 100%;
-    height: 300px; /* Set a fixed height */
+    height: 400px;
     object-fit: cover;
-    transition: transform 0.3s ease; /* Smooth image scaling */
+    transition: transform 0.3s ease;
   }
 
   .card:hover img {
-    transform: scale(1.05); /* Scale image on hover */
+    transform: scale(1.05);
   }
 
   img {
     width: 100%;
-    height: 300px; /* Set a fixed height */
+    height: 400px;
     object-fit: cover;
-    transition: transform 0.3s ease; /* Smooth image scaling */
+    transition: transform 0.3s ease;
   }
 
   @media (min-width: 50em) {
     img {
-      height: 250px; /* Adjust height for larger screens */
+      height: 400px;
     }
   }
 
   @media (max-width: 768px) {
     img {
-      height: 200px; /* Adjust height for smaller screens */
+      height: 200px;
     }
   }
 </style>
