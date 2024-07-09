@@ -1,46 +1,93 @@
 ---
 export interface Props {
-  images: Array<{ src: string; alt: string }>;
+  images: Array<{ src: string; alt: string; title?: string; caption?: string }>;
   className?: string;
+  fullWidth?: boolean;
+  align?: string;
 }
 
-const { images = [], className = "" } = Astro.props;
-const imgLength = images.length ?? [];
+const {
+  images = [],
+  className = "",
+  fullWidth = false,
+  align = "center",
+} = Astro.props;
+const imgLength = images.length;
 ---
 
-<div class="full-width-image-container">
+<div
+  class={`full-width-image-container ${fullWidth ? "full-width" : "contained"}`}
+>
   {
     images.map((image) => (
-      <img src={image.src} alt={image.alt} class={className} />
+      <div class="image-wrapper">
+        {image.title && <h4 class="image-title">{image.title}</h4>}
+        <img src={image.src} alt={image.alt} class={className} />
+        {image.caption && <div class="image-caption">{image.caption}</div>}
+      </div>
     ))
   }
 </div>
 
-<style define:vars={{ imgs: imgLength }}>
+<style define:vars={{ imagesLength: imgLength, alignVal: align }}>
   .full-width-image-container {
-    display: flex;
+    --display-value: flex;
+    --margin-value: 0 auto;
+    display: var(--display-value);
     justify-content: center;
     gap: 1rem;
+  }
+
+  .full-width-image-container.full-width {
+    --display-value: flex;
+    --margin-value: 0;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
   }
 
-  .full-width-image-container img {
-    width: calc(100% / {var(--imgs)});
+  .full-width-image-container.contained {
+    width: 100%;
+    margin: var(--margin-value);
+  }
+
+  .image-wrapper {
+    flex: 1 1 calc(100% / var(--imagesLength));
+    text-align: var(--alignVal);
+    margin: 1rem 0;
+  }
+
+  .image-wrapper img {
+    width: 100%;
     height: auto;
-    margin: 3rem 0;
+  }
+
+  .image-title {
+    margin: 3rem 0 0.5rem 0;
+    font-size: var(--text-page);
+    font-weight: bold;
+  }
+
+  .image-caption {
+    margin-top: 0.5rem;
+    font-size: var(--text-molecule);
+    color: var(--gray-600);
+    text-align: center;
   }
 
   @media (max-width: 767px) {
     .full-width-image-container {
       flex-direction: column;
-      gap: 0;
+      gap: 1rem;
       padding: 1rem;
     }
 
-    .full-width-image-container img {
+    .image-wrapper {
       width: 100%;
-      margin: 1rem 0;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      margin: 0.8rem 0;
     }
   }
 </style>

@@ -131,13 +131,17 @@ aside h2 {
 
 aside p {
   margin: 0;
-} /* Callouts */
+}
+/* Callouts */
 blockquote {
   border-left: 4px solid #007bff;
   background-color: #e9f5ff;
-  padding: 1rem;
-  margin: 1rem 0;
+  margin: 1rem 2rem;
   border-radius: 0.5rem;
+}
+
+blockquote > p {
+  padding: 2rem;
 }
 
 blockquote.warning {
@@ -246,15 +250,11 @@ h2 {
 h3 {
   font-size: var(--text-3xl);
   line-height: 1.2;
-  padding: 0.5rem 0 1.3rem 0;
+  /* padding: 0.5rem 0 1.3rem 0; */
 }
 
 h4 {
   font-size: var(--text-2xl);
-  margin-top: 1.25rem;
-  margin-bottom: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 h5 {
@@ -267,6 +267,15 @@ h6 {
 
 p {
   font-size: var(--text-organism);
+  padding-top: 2rem;
+}
+
+li {
+  padding-top: 5px;
+}
+
+.numbered-list-item-content > p {
+  padding: 0;
 }
 
 .sr-only {
@@ -367,7 +376,7 @@ p {
   background-color: #cedce8;
 }
 
-.description p {
+.description {
   font-size: var(--text-component);
   padding: 0.1rem 0 3rem 0;
 }
@@ -375,7 +384,7 @@ p {
 .case-overview {
   display: flex;
 }
-.section-container .text-container > p:first-child {
+.text-container > p:first-child {
   font-weight: bold;
   color: #406d92;
 }
@@ -404,7 +413,6 @@ p {
 
 .description + p {
   max-width: 41rem;
-  padding: 2rem 0;
 }
 
 @media (max-width: 768px) {
@@ -433,35 +441,6 @@ p {
   }
 }
 
-.image-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.image-container img {
-  flex: 1 1 calc(50% - 1rem); /* Two columns */
-  max-width: calc(50% - 1rem);
-  height: auto;
-  margin-bottom: 0.5rem; /* Adjust the margin to control the vertical space */
-}
-
-@media (max-width: 768px) {
-  .image-container {
-    gap: 0.5rem; /* Reduce the gap between images */
-  }
-
-  .image-container img {
-    flex: 1 1 100%; /* Full width on smaller screens */
-    max-width: 100%;
-    margin-bottom: 0.5rem; /* Adjust the margin to control the vertical space */
-  }
-}
-
-.text-container > :not(.full-width-image-container) {
-  padding-right: 10vw;
-}
-
 @media (max-width: 768px) {
   :root {
     --text-atom: 0.625rem; /* Adjusted smaller for mobile */
@@ -478,7 +457,6 @@ p {
 
   h4 {
     margin-top: 1rem;
-    margin-bottom: 0.8rem;
   }
 
   h5 {
@@ -503,9 +481,5 @@ p {
   .text-container {
     max-width: auto;
     margin: 0 auto;
-  }
-
-  .text-container > :not(.full-width-image-container) {
-    padding-right: 0;
   }
 }

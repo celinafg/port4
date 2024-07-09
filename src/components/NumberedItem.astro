@@ -2,18 +2,19 @@
 interface Props {}
 ---
 
-<div class="numbered-list-item">
+<li class="numbered-list-item">
   <span class="numbered-list-item-number"></span>
   <div class="numbered-list-item-content">
     <slot />
   </div>
-</div>
+</li>
 
 <style>
   .numbered-list-item {
     display: flex;
     align-items: flex-start;
     counter-increment: item;
+    margin-top: 1.5rem;
   }
 
   .numbered-list-item-number::before {
