@@ -136,7 +136,7 @@ aside p {
 blockquote {
   border-left: 4px solid #007bff;
   background-color: #e9f5ff;
-  margin: 1rem 2rem;
+  margin: 1rem 0.6rem;
   border-radius: 0.5rem;
 }
 
@@ -235,6 +235,7 @@ h4,
 h5 {
   font-family: var(--font-headers);
   margin: 0;
+  margin-bottom: 0.4rem;
 }
 
 h1 {
@@ -245,29 +246,33 @@ h1 {
 
 h2 {
   font-size: var(--text-4xl);
+  margin-bottom: 0.8rem;
 }
 
 h3 {
   font-size: var(--text-3xl);
   line-height: 1.2;
-  /* padding: 0.5rem 0 1.3rem 0; */
+  margin-bottom: 1.7rem;
 }
 
 h4 {
   font-size: var(--text-2xl);
+  margin-bottom: 0.8rem;
 }
 
 h5 {
   font-size: var(--text-page);
+  margin-bottom: 0.8rem;
 }
 
 h6 {
   font-size: var(--text-component);
+  margin-bottom: 0.4rem;
 }
 
 p {
   font-size: var(--text-organism);
-  padding-top: 2rem;
+  margin-bottom: 0.3rem;
 }
 
 li {
@@ -370,6 +375,12 @@ li {
 .two-col {
   display: flex;
   flex-direction: row;
+  gap: 5rem;
+}
+
+.two-col > :nth-child(2) > div > .image-wrapper > :nth-child(1) {
+  padding-top: 0;
+  margin: 0;
 }
 
 .lightblue {
@@ -387,6 +398,7 @@ li {
 .text-container > p:first-child {
   font-weight: bold;
   color: #406d92;
+  margin-bottom: 0.5rem;
 }
 
 .roles {
@@ -453,15 +465,6 @@ li {
     --text-3xl: 2rem;
     --text-4xl: 2.5rem;
     --text-5xl: 3rem;
-  }
-
-  h4 {
-    margin-top: 1rem;
-  }
-
-  h5 {
-    margin-top: 0.4rem;
-    margin-bottom: 0.4rem;
   }
 
   p,

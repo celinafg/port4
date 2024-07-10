@@ -23,9 +23,11 @@ const imgLength = images.length;
   {
     images.map((image) => (
       <div class="image-wrapper">
-        <div class={` ${fullWidth ? "full-title" : "image-title"}`}>
-          {image.title && <h5 class="title">{image.title}</h5>}
-        </div>
+        {image.title && (
+          <div class={` ${fullWidth ? "full-title" : "image-title"}`}>
+            <h6 class="title">{image.title}</h6>
+          </div>
+        )}
         <div class="img-cont">
           <img src={image.src} alt={image.alt} class={className} />
         </div>
@@ -64,7 +66,6 @@ const imgLength = images.length;
     height: auto;
     display: flex;
     flex-direction: column;
-    margin: 2rem 0;
     background-color: var(--bgcolor);
   }
 
