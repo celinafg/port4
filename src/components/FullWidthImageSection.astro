@@ -4,6 +4,7 @@ export interface Props {
   className?: string;
   fullWidth?: boolean;
   align?: string;
+  color?: string;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
   className = "",
   fullWidth = false,
   align = "center",
+  color = "",
 } = Astro.props;
 const imgLength = images.length;
 ---
@@ -21,20 +23,25 @@ const imgLength = images.length;
   {
     images.map((image) => (
       <div class="image-wrapper">
-        {image.title && <h4 class="image-title">{image.title}</h4>}
-        <img src={image.src} alt={image.alt} class={className} />
-        {image.caption && <div class="image-caption">{image.caption}</div>}
+        <div class={` ${fullWidth ? "full-title" : "image-title"}`}>
+          {image.title && <h5 class="title">{image.title}</h5>}
+        </div>
+        <div class="img-cont">
+          <img src={image.src} alt={image.alt} class={className} />
+        </div>
+        {image.caption && <figcaption>{image.caption}</figcaption>}
       </div>
     ))
   }
 </div>
 
-<style define:vars={{ imagesLength: imgLength, alignVal: align }}>
+<style
+  define:vars={{ imagesLength: imgLength, alignVal: align, bgcolor: color }}
+>
   .full-width-image-container {
     --display-value: flex;
     --margin-value: 0 auto;
     display: var(--display-value);
-    justify-content: center;
     gap: 1rem;
   }
 
@@ -43,6 +50,7 @@ const imgLength = images.length;
     --margin-value: 0;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    padding: 0 3rem;
   }
 
   .full-width-image-container.contained {
@@ -53,25 +61,57 @@ const imgLength = images.length;
   .image-wrapper {
     flex: 1 1 calc(100% / var(--imagesLength));
     text-align: var(--alignVal);
-    margin: 1rem 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    background-color: var(--bgcolor);
+  }
+
+  .image-wrapper > :first-child,
+  .image-wrapper > img:first-child {
+    padding-top: 2rem;
+  }
+
+  .image-wrapper > :last-child,
+  .image-wrapper > img:last-child {
+    padding-bottom: 2rem;
   }
 
   .image-wrapper img {
     width: 100%;
     height: auto;
+    align-self: center;
+  }
+
+  .full-width-image-container.full-width .image-wrapper img {
+    width: 70%;
+  }
+
+  .img-cont {
+    display: flex;
+    justify-content: center;
   }
 
   .image-title {
-    margin: 3rem 0 0.5rem 0;
+    margin: 1rem auto 0.5rem auto;
     font-size: var(--text-page);
     font-weight: bold;
+    display: flex;
+    width: 100%;
+    text-align: center;
   }
 
-  .image-caption {
-    margin-top: 0.5rem;
-    font-size: var(--text-molecule);
-    color: var(--gray-600);
-    text-align: center;
+  .full-title {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .title {
+    text-align: var(--alignVal);
+    padding-left: 1rem;
+    width: 100%;
+    margin: 0 0;
   }
 
   @media (max-width: 767px) {
