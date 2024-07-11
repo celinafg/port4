@@ -8,9 +8,12 @@ export const collections = {
       description: z.string(),
       publishDate: z.coerce.date(),
       tags: z.array(z.string()),
-      img: z.string(),
-      img_alt: z.string().optional(),
+      imglong: z.string().optional(),
+      imglong_alt: z.string().optional(),
+      imgshort: z.string().optional(),
+      imgshort_alt: z.string().optional(),
       overview: z.string().optional(),
+      orderNo: z.number().optional(),
       details: z
         .object({
           brief: z.string().optional(),

@@ -1,18 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Grid from "../components/Grid.astro";
 import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
-
 import ContactCTA from "../components/ContactCTA.astro";
 import Skills from "../components/Skills.astro";
-const projects = (await getCollection("work")).filter(
-  (project) => !project.data.draft
-);
+
+const projects = (await getCollection("work"))
+  .filter((project) => !project.data.draft)
+  .sort((a, b) => a.data.orderNo - b.data.orderNo);
 ---
 
 <BaseLayout hasNav={true}>
@@ -21,7 +20,7 @@ const projects = (await getCollection("work")).filter(
       <header class="hero">
         <div class="left-container">
           <Hero
-            title="I’m Celina! I research, design, and build to solve problems across the stack.  "
+            title="I’m Celina! I research, design, and build to solve problems across the stack."
             align="start"
           >
             <div>
@@ -35,10 +34,8 @@ const projects = (await getCollection("work")).filter(
             </div>
             <div class="roles">
               <Pill
-                ><span class="gray">Research Intern at </span> King County Metro<Icon
-                  icon="outarrow"
-                  size="1em"
-                />
+                ><span class="gray">Research Intern at </span> King County Metro
+                <Icon icon="outarrow" size="1em" />
               </Pill>
               <Pill
                 ><span class="gray"> Software Engineer at</span> Samsung Research
@@ -51,7 +48,12 @@ const projects = (await getCollection("work")).filter(
             </div>
           </Hero>
         </div>
-        <img alt="" width="480" height="620" src="/assets/portrait.jpg" />
+        <img
+          alt=""
+          width="480"
+          height="620"
+          src="https://res.cloudinary.com/digifab/image/upload/v1720672483/p4ioMedia/photo_6305040668480882232_y_1_sc2ug7.jpg"
+        />
       </header>
 
       <Skills />
@@ -82,7 +84,6 @@ const projects = (await getCollection("work")).filter(
     <ContactCTA />
   </div>
 </BaseLayout>
-
 <style>
   .hero {
     display: flex;
@@ -203,8 +204,6 @@ const projects = (await getCollection("work")).filter(
       grid-area: cta;
     }
   }
-
-  /* ====================================================== */
 
   .mention-card {
     display: flex;
