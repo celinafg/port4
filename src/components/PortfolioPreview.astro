@@ -9,12 +9,14 @@ const { data, slug } = Astro.props.project;
 ---
 
 <a class="card" href={`/work/${slug}`}>
-  <img
-    src={data.img}
-    alt={data.img_alt || ""}
-    loading="lazy"
-    decoding="async"
-  />
+  <div class="image-wrapper">
+    <img
+      src={data.imgshort}
+      alt={data.imgshort_alt || ""}
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
   <h5 class="card-title">{data.title}</h5>
   <p class="card-tags">{data.tags.join(", ")}</p>
   <p class="card-des">{data.description}</p>
@@ -53,6 +55,7 @@ const { data, slug } = Astro.props.project;
     transform: scaleX(0);
     transform-origin: bottom left;
     transition: transform 0.3s ease;
+    overflow: hidden;
   }
 
   .card:hover .card-title::after {
@@ -70,32 +73,33 @@ const { data, slug } = Astro.props.project;
     margin-top: 0;
   }
 
-  img {
+  .image-wrapper {
     width: 100%;
     height: 400px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    transform-origin: center center;
   }
 
   .card:hover img {
     transform: scale(1.05);
   }
 
-  img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-
   @media (min-width: 50em) {
-    img {
+    .image-wrapper {
       height: 400px;
     }
   }
 
   @media (max-width: 768px) {
-    img {
+    .image-wrapper {
       height: 200px;
     }
   }
